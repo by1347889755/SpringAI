@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/eui.css">
+    <script src="../js/eui.js"></script>
+
+    <style type="text/css">
+        body{
+            background-color: black;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+<!--        @mousedown="" 当鼠标左键按下
+            @mouseup="" 当鼠标左键抬起 -->
+        <h1>您当前的功德数为：{{gd}}</h1>
+        <img src="../img/木鱼.png" v-bind:width="w" @mousedown="f1()" @mouseup="f2()">
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                w:391,
+                gd:0
+            },
+            methods:{
+                f1(){
+                    //当鼠标按下
+                    this.w = 401
+                    //背景音乐
+                    new Audio("../music/木鱼1.mp3").play()
+                    //加功德
+                    this.gd += 1
+                    //提示信息
+                    this.$notify({
+                        title: '恭喜你',
+                        message: '你的功德加1',
+                        duration: 500
+                    });
+                },
+                f2(){
+                    //当鼠标抬起
+                    this.w = 391
+                }
+            }
+        })
+    </script>
+</body>
+</html>

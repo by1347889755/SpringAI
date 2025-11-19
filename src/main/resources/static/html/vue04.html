@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+<!--    数据传输组件axios-->
+    <script src="../js/axios.min.js"></script>
+</head>
+<body>
+
+    <div id="app">
+<!--        数据双向绑定语法：目的是采集或者显示数据-->
+        <input type="text" v-model="info.msg">
+        <input type="text" v-model="info.name">
+        <input type="text" v-model="info.age">
+        <button type="button" @click="send()">点击确认</button>
+        {{result}}
+    </div>
+
+    <script>
+        let v = new Vue({
+            el: '#app',
+            data: {
+                msg:"",
+                result:"",
+                info:{
+                    msg:"",
+                    name:"",
+                    age:""
+                }
+            },
+            methods:{
+                // send(){
+                //     //0-65535 端口范围  每个程序运行时必须占用一个端口
+                //     //3位数以下的端口基本已被系统应用占完
+                //     //get请求
+                //     axios.get("http://localhost:8088/d1?msg="+v.msg).then(res=>{
+                //         v.result=res.data
+                //     })
+                // }
+
+                send(){
+                    //post请求要求传入两个参数,第一个参数：url,第二个参数：数据（键值对的方式、对象）
+                    axios.post("http://localhost:8088/d1",v.info).then(res=>{
+                        //res.data res是后端响应对象，res.data就是后端响应的数据
+                        v.result=res.data
+                    })
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+spring:
+#  servlet:
+#    multipart:
+#      max-file-size: 1000MB
+#      max-request-size: 1000MB
+#  datasource:
+#    driverClassName: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://127.0.0.1:3306/ikun_courser?useUnicode=true&characterEncoding=utf-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8
+#    username: root
+#    password: pf112714
+
+
+
+  ai:
+    openai:
+      base-url: https://dashscope.aliyuncs.com/compatible-mode
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        options:
+          model: qwen-max-latest
+#      embedding:
+#        options:
+#          model: text-embedding-v4
+#          dimensions: 2048
+
+server:
+  port: 8088
+
+logging:
+  level:
+    org.springframework.ai.chat.client.advisor: debug
+    com.pengyuyan.cqjt_lingxi: debug

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+<!--        文本替换语法 v-text:替换标签中原有的文本内容 -->
+        <p v-text="msg">我是文本替换语法</p>
+<!--        标签替换语法v-html，变量值必须是一个标签-->
+        <p v-html="msg2">我是标签替换语法</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                msg: '我是数据',
+                msg2: '<h1>我是标签</h1>'
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--  引入外部文件，将Vue引入到当前html文件，必做-->
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+<!--      {{}} 插值语法，是vue的组件，作用是实时的将变量值展示在页面中-->
+      {{msg}}
+    </div>
+
+
+    <script>
+      //创建Vue对象
+      new Vue({
+        //vue框架的作用:渲染数据（将数据实时的展示在页面中）
+        //el：指定渲染的范围
+        el:"#app",
+        //data:变量存储模块
+        data:{
+          //变量名:变量值
+          msg:"盖浇饭"
+        }
+      })
+    </script>
+</body>
+</html>

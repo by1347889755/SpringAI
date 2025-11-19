@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+<!--        属性替换语法 v-bind:将属性的值转为变量值，更改变量值就等于更改属性值-->
+        <img :src="ss">
+        <button type="button" @click="cc()">点击切换图片</button>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                ss:"../img/ee.jpeg"
+            },
+            methods:{
+                cc(){
+                    //this代表当前对象
+                    this.ss = "../img/ww.jpg"
+                }
+            }
+        })
+    </script>
+</body>
+</html>
